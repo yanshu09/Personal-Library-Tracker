@@ -1,0 +1,146 @@
+.dashboard-bg {
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg,rgba(50,50,62,0.50),rgba(34,197,94,0.17)),
+    url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1280&q=80') center/cover no-repeat fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3vh 0;
+}
+
+.dashboard-card {
+  background: rgba(254,251,235,0.18);
+  backdrop-filter: blur(23px) saturate(1.8);
+  border-radius: 2.2rem;
+  box-shadow: 0 12px 36px 0 rgba(41,50,75,0.24);
+  padding: 2.5rem 2.3rem 2rem 2.3rem;
+  max-width: 930px;
+  width: 98vw;
+  min-height: 78vh;
+  margin: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dashboard-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #1a4226;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 22px #c8f6e544;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 8;
+}
+
+/* Glassmorphism on the book list area */
+.book-list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(255px,1fr));
+  gap: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+.filter-bar {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  z-index: 6;
+}
+
+.filter-control {
+  display: flex;
+  align-items: center;
+  background: rgba(242,245,255,0.61);
+  border-radius: 1.14rem;
+  box-shadow: 0 2px 9px 0 #1e293b14;
+  padding: 0.45rem 1rem;
+  min-width: 180px;
+}
+
+.filter-icon {
+  font-size: 1.25rem;
+  margin-right: 0.65rem;
+}
+
+.filter-select {
+  padding: 0.53rem 0.97rem;
+  font-size: 1.01rem;
+  border: none;
+  outline: none;
+  border-radius: 0.9rem;
+  color: #183838;
+  font-weight: bold;
+  background: transparent;
+}
+
+.search-input {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.9rem;
+  outline: none;
+  background: transparent;
+  color: #24323b;
+  font-size: 1.01rem;
+  font-weight: 600;
+}
+
+.search-input::placeholder {
+  color: #7ebfc2bb;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.no-books {
+  font-size: 1.11rem;
+  color: #b91c1c;
+  background: rgba(254, 226, 226, 0.47);
+  padding: 1rem 1.2rem;
+  border-radius: 13px;
+  text-align: center;
+  font-weight: bold;
+  grid-column: span 3;
+}
+
+/* BookForm, BookCard components should have consistent glass styles:
+   Add the following classes inside those components as needed:
+   - background: rgba(255,255,255,0.17);
+   - box-shadow: 0 1px 14px #14532d33;
+   - border-radius: 1.2rem;
+*/
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dashboard-card {
+    padding: 1.6rem .3rem 1rem .3rem;
+    min-height: 85vh;
+  }
+  .book-list {
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    gap: 1.15rem;
+  }
+}
+@media (max-width: 600px) {
+  .dashboard-bg { padding: 0; }
+  .dashboard-card { padding: 0.6rem 0.1rem; min-height: 96vh; }
+  .filter-bar { gap: 0.5rem; }
+  .book-list { gap: .7rem; }
+}
+
+/* Bonus: if you want some fade in for BookCard: */
+.book-list > * { 
+  animation: fadeUpBook 0.95s cubic-bezier(.37,.97,.24,1.01) forwards;
+  opacity: 0;
+}
+@keyframes fadeUpBook {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

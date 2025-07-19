@@ -1,0 +1,223 @@
+.login-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(120deg, rgba(14,164,233,0.30), rgba(20,184,166,0.33)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1280&q=80')
+    center/cover no-repeat fixed;
+  /* easy to swap background URL! */
+}
+
+.login-card {
+  background: rgba(255,255,255,0.19);
+  backdrop-filter: blur(22px) saturate(170%);
+  border-radius: 2rem;
+  box-shadow: 0 8px 40px 0 rgba(20,51,86,0.22);
+  padding: 2.6rem 2rem 2rem 2rem;
+  max-width: 370px;
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatCard 0.89s cubic-bezier(.25,.8,.25,1.3);
+}
+
+@keyframes floatCard {
+  0%   {transform: translateY(60px) scale(0.95);}
+  100% {transform: translateY(0) scale(1);}
+}
+
+.login-title {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #145661;
+  margin-bottom: .4rem;
+  text-shadow: 0 1px 8px #dbeafe90;
+}
+
+.login-toggle {
+  display: flex;
+  width: 100%;
+  margin: 1.1rem 0 2rem 0;
+  background: #c7d8fd33;
+  padding: 0.22rem;
+  border-radius: 1.4rem;
+  box-sizing: border-box;
+  gap: .15rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 1.04rem;
+  color: #0d77a7;
+  padding: 0.62rem 1rem;
+  border-radius: 1.1rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, font-weight .13s;
+}
+.toggle-button.active {
+  background: linear-gradient(94deg,#7dd3fc 36%,#5eead4 100%);
+  color: #155e63;
+  font-weight: 800;
+  box-shadow: 0 1px 7px #1294b66d;
+}
+
+.login-form {
+  width: 100%;
+}
+
+/* Floating label input */
+.input-group {
+  position: relative;
+  margin-bottom: 1.28rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.floating-input {
+  width: 100%;
+  padding: 1.08rem 1rem 0.44rem 1rem;
+  font-size: 1.09rem;
+  border: 1.5px solid #dbeafe;
+  background: rgba(255,255,255,0.82);
+  border-radius: 9px;
+  outline: none;
+  color: #154966;
+  font-weight: 600;
+  transition: border-color .21s, box-shadow .16s;
+  box-shadow: 0 1px 6px #17698e15;
+}
+
+.floating-input:focus {
+  border: 1.7px solid #38bdf8;
+  box-shadow: 0 4px 20px #0891b229;
+}
+
+.filled + .floating-label,
+.floating-input:focus + .floating-label {
+  top: 0.29rem;
+  left: 0.87rem;
+  font-size: 0.85rem;
+  color: #0ea5e9;
+  font-weight: 700;
+  background: #fffcffe9;
+  padding: 0 0.11rem;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.floating-label {
+  position: absolute;
+  left: 1.06rem;
+  top: 1.18rem;
+  font-size: 1.05rem;
+  color: #167894a8;
+  pointer-events: none;
+  transition:
+    top .17s cubic-bezier(.4,0,.2,1),
+    left .15s cubic-bezier(.4,0,.2,1),
+    font-size .14s cubic-bezier(.4,0,.2,1),
+    color .13s;
+  background: none;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: .89rem;
+}
+
+.forgot-button {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  font-size: .99rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline dashed #b7eafc 1.3px;
+  transition: color .13s;
+}
+
+.forgot-button:hover, .forgot-button:focus {
+  color: #ed4e8e;
+  outline: none;
+}
+
+.login-button, .glass-btn {
+  width: 100%;
+  margin-top: 0.12rem;
+  font-size: 1.13rem;
+  font-weight: 800;
+  padding: 0.88rem 0;
+  border: none;
+  border-radius: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  background: linear-gradient(94deg,#38bdf8 34%,#5eead4 100%);
+  color: #01434d;
+  box-shadow: 0 1px 12px #1e3c721f;
+  transition: background .15s, box-shadow .18s, color .13s;
+}
+
+.login-button:hover, .login-button:focus, .glass-btn:hover, .glass-btn:focus {
+  background: linear-gradient(97deg,#1275c0 10%,#3af79b 90%);
+  color: #f6faff;
+  outline: none;
+  box-shadow: 0 4px 28px #3b82f64b;
+}
+
+.login-message {
+  color: #155e63;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  min-height: 1.5em;
+  text-align: center;
+  background: #fff8;
+  border-radius: 6px;
+  font-weight: 600;
+  padding: .1rem .35rem;
+  opacity: 0;
+  transition: opacity .29s;
+}
+.login-message.show {
+  opacity: 1;
+}
+
+.switch-text {
+  color: #155561de;
+  margin-top: 2.18rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.switch-button {
+  background: none;
+  border: none;
+  font-weight: 800;
+  color: #0ea5e9;
+  cursor: pointer;
+  margin-left: .22rem;
+  font-size: 1.09rem;
+  text-decoration: underline dashed #bae6fd 1.5px;
+  transition: color .16s;
+}
+.switch-button:hover, .switch-button:focus {
+  color: #d72bf3;
+  outline: none;
+  text-decoration: underline wavy #bfd9fc 2.5px;
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    max-width: 98vw;
+    padding: 1.2rem 0.7rem 1.1rem 0.7rem;
+    margin: 5vw 1vw;
+  }
+}

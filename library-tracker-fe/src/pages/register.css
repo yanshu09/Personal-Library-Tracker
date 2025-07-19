@@ -1,0 +1,172 @@
+/* Fullscreen BG with image + overlay */
+.register-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(120deg,rgba(61,199,245,0.45),rgba(94,234,212,0.46)), 
+    url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1280&q=80') center/cover no-repeat fixed;
+}
+
+/* Card glassmorphism */
+.register-card {
+  background: rgba(255,255,255,0.21);
+  backdrop-filter: blur(25px) saturate(178%);
+  border-radius: 2rem;
+  box-shadow: 0 8px 40px 0 rgba(20,51,86,0.21);
+  padding: 2.7rem 2rem 2rem 2rem;
+  max-width: 370px;
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatCard 0.9s cubic-bezier(.25,.8,.25,1.3);
+}
+
+@keyframes floatCard {
+  0%   {transform: translateY(60px) scale(0.95);}
+  100% {transform: translateY(0) scale(1);}
+}
+
+.register-title {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #155e63;
+  margin-bottom: .2rem;
+  text-shadow: 0 2px 16px #dbeafe60;
+}
+
+.register-subtitle {
+  font-size: 1.08rem;
+  color: #167894cc;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.register-form {
+  width: 100%;
+}
+
+/* Floating label input */
+.input-group {
+  position: relative;
+  margin-bottom: 1.28rem;
+  width: 100%;
+}
+
+.floating-input {
+  width: 100%;
+  padding: 1rem 1rem 0.38rem 1.01rem;
+  font-size: 1.07rem;
+  border: 1.5px solid #dbeafe;
+  background: rgba(255,255,255,0.78);
+  border-radius: 9px;
+  outline: none;
+  color: #155661;
+  font-weight: 600;
+  transition: border-color .24s, box-shadow .19s;
+  box-shadow: 0 1px 6px #11698e11;
+}
+
+.floating-input:focus {
+  border: 1.8px solid #38bdf8;
+  box-shadow: 0 4px 20px #0891b222;
+}
+
+.filled + .floating-label,
+.floating-input:focus + .floating-label {
+  top: 0.36rem;
+  left: 0.87rem;
+  font-size: 0.84rem;
+  color: #0ea5e9;
+  font-weight: 700;
+  background: #fff4;
+  padding: 0 0.18rem;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.floating-label {
+  position: absolute;
+  left: 1.02rem;
+  top: 1.1rem;
+  font-size: 1.03rem;
+  color: #167894a8;
+  pointer-events: none;
+  transition: 
+    top .22s cubic-bezier(.4,0,.2,1),
+    left .18s cubic-bezier(.4,0,.2,1),
+    font-size .15s cubic-bezier(.4,0,.2,1),
+    color .15s;
+  background: none;
+}
+
+.register-error {
+  color: #ee2d52;
+  background: #fff3;
+  border-radius: 6px;
+  font-size: 0.96rem;
+  margin-bottom: 0.62rem;
+  padding-left: 2px;
+  letter-spacing: 0.01em;
+}
+
+.register-button {
+  width: 100%;
+  margin-top: 0.44rem;
+  font-size: 1.13rem;
+  font-weight: 800;
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  background: linear-gradient(94deg,#38bdf8 34%,#5eead4 100%);
+  color: #01434d;
+  box-shadow: 0 1px 11px #1e3c723f;
+  transition: background .15s, box-shadow .16s, color .14s;
+}
+
+.register-button:hover, .register-button:focus {
+  background: linear-gradient(97deg,#1275c0 10%,#3af79b 94%);
+  color: #f6faff;
+  outline: none;
+  box-shadow: 0 4px 32px #3b82f64b;
+}
+
+.switch-text {
+  color: #127086cb;
+  margin-top: 2.2rem;
+  font-size: 1.08rem;
+  text-align: center;
+}
+
+.switch-button {
+  background: none;
+  border: none;
+  font-weight: 800;
+  color: #0ea5e9;
+  cursor: pointer;
+  margin-left: .22rem;
+  font-size: 1.07rem;
+  text-decoration: underline dashed #bae6fd 1.4px;
+  transition: color .16s;
+}
+
+.switch-button:hover, .switch-button:focus {
+  color: #f34b7f;
+  outline: none;
+  text-decoration: underline wavy #d7f6fa 2.7px;
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    max-width: 98vw;
+    padding: 1.1rem 0.5rem 1rem 0.5rem;
+    margin: 5vw 1vw;
+  }
+}
